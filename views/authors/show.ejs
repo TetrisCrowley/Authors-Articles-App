@@ -16,8 +16,11 @@
   <main>
     <section>
       <h2>Author Attributes</h2>
-      <ul>
+       <ul>
         <li>Name: <%=author.name%></li>
+        <form method="POST" action="/authors/<%=author.id%>?_method=DELETE">
+          <input type="submit" class="delete" value="delete">
+        </form>
       </ul>
     </section>
   </main>

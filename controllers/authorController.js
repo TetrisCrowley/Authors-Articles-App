@@ -36,4 +36,12 @@ router.post('/', (req, res) => {
   });
 });
 
+// Delete route
+router.delete('/:id', (req, res) => {
+  Author.findByIdAndRemove(req.params.id, (err, deletedAuthor) => {
+    console.log(deletedAuthor, ' this is deletedAuthor');
+    res.redirect('/authors');
+  });
+});
+
 module.exports = router;
