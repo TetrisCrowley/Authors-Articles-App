@@ -14,14 +14,32 @@
     </nav>
   </header>
   <main>
+
     <section>
-      <h2>Author Attributes</h2>
-       <ul>
-        <li>Name: <%=author.name%></li>
-        <form method="POST" action="/authors/<%=author.id%>?_method=DELETE">
-          <input type="submit" class="delete" value="delete">
-        </form>
+      <h2>Articles written by this author:</h2>
+      <ul>
+        <% for(let i = 0; i < author.articles.length; i++) {%>
+          <li><a href="/articles/<%=author.articles[i].id%>"><%=author.articles[i].title%></a></li>
+        <%}%>
       </ul>
+    </section>
+
+
+     <section>
+      <h2>Author Attributes</h2>
+      <ul>
+        <li>Name: <%=author.name%></li>
+      </ul>
+    </section>
+
+    <section>
+      <a href="/authors/<%=author.id%>/edit">Edit</a>
+    </section>
+
+    <section>
+      <form action="/authors/<%=author.id%>?_method=DELETE" method="POST">
+        <button type="submit">Delete Author</button>
+      </form>
     </section>
   </main>
 

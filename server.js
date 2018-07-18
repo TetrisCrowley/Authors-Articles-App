@@ -13,8 +13,11 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 
 // controllers
-const authorController = require('./controllers/authorController')
-app.use('/authors', authorController)
+const authors = require('./controllers/authors')
+app.use('/authors', authors)
+
+const articles = require('./controllers/articles')
+app.use('/articles', articles)
 
 app.get('/', (req, res) => {
   res.render('index.ejs')
